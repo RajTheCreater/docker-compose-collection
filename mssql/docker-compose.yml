@@ -9,7 +9,7 @@ services:
       - SA_PASSWORD=sTRONGpassword1! # Replace with your own password
       - MSSQL_PID=Developer # Options: Express, Standard, Enterprise, Developer, Evaluation
     ports:
-      - "1434:1433" # Format: "HOST_PORT:CONTAINER_PORT" (Change 1434 to your preferred host port)
+      - "1434:1433" # Format: "HOST_PORT:CONTAINER_PORT"
     expose:
       - "1433" # Makes port 1433 available to other containers on the same Docker network
     volumes:
