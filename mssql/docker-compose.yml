@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: mssql_server_2019
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=sTRONGpassword1! # Replace with your own password
+      - MSSQL_PID=Developer # Options: Express, Standard, Enterprise, Developer, Evaluation
+    ports:
+      - "1434:1433" # Format: "HOST_PORT:CONTAINER_PORT" (Change 1434 to your preferred host port)
+    expose:
+      - "1433" # Makes port 1433 available to other containers on the same Docker network
+    volumes:
+      - mssql_data:/var/opt/mssql
+    restart: unless-stopped
+
+volumes:
+  mssql_data:
